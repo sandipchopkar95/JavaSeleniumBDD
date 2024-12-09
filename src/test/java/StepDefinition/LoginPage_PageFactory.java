@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageFactory.LoginPage_PF;
+import pageFactory.ProductPage_PF;
+
 import java.time.Duration;
 
 public class LoginPage_PageFactory {
@@ -26,19 +28,21 @@ public class LoginPage_PageFactory {
 
     @When("the user provides a valid username and password, page factory")
     public void the_user_provides_a_valid_username_and_password_page_factory() {
-        loginPagePf = new LoginPage_PF(driver);
+        loginPagePf= new LoginPage_PF(driver);
         loginPagePf.enterUserName("standard_user");
         loginPagePf.enterPassword("secret_sauce");
     }
 
     @And("clicks the login button, page factory")
     public void clicks_the_login_button_page_factory() {
+        LoginPage_PF loginPagePf = new LoginPage_PF(driver);
         loginPagePf.clickLogin();
     }
 
     @Then("the user should be redirected to the product page. page factory")
     public void theUserShouldBeRedirectedToTheProductPagePageFactory() {
-        boolean isHeaderDisplayed = loginPagePf.getProductHeader();
-        Assert.assertTrue("Header is not displayed", isHeaderDisplayed);
+        ProductPage_PF productPagePf = new ProductPage_PF(driver);
+        String productLabel = productPagePf.getProductLabel();
+        Assert.assertEquals( "Products",productLabel);
     }
 }
