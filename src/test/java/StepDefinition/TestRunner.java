@@ -14,8 +14,7 @@ import io.cucumber.junit.CucumberOptions;
                 "html:target/HtmlReports/cucumber.html",
                 "json:target/JsonReports/cucumber.json",
                 "junit:target/JUnitReports/cucumber.xml"
-        },
-        tags = "@SmokeTest"
+        }
 )
 
 public class TestRunner {
