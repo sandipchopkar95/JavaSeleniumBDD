@@ -9,12 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/Features/BackgroundDemo/BackgroundDemo.feature",
         glue = {"StepDef_BackgroundDemo"},
         monochrome = true,
-        plugin = {
-                "pretty",
-                "html:target/HtmlReports/cucumber.html",
-                "json:target/JsonReports/cucumber.json",
-                "junit:target/JUnitReports/cucumber.xml"
-        }
+        plugin = {"json:target/cucumber.json"}
 )
 
 public class TestRunner_BackgroundDemo {
