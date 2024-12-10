@@ -7,3 +7,4 @@ Feature: Validate SwagLab Login Functionality page factory
     When the user provides a valid username and password, page factory
     And clicks the login button, page factory
     Then the user should be redirected to the product page. page factory
+    And close the browser

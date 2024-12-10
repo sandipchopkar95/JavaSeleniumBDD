@@ -12,6 +12,7 @@ import java.time.Duration;
 public class LoginPage_PageFactory {
     WebDriver driver;
     LoginPage_PF loginPagePf;
+    ProductPage_PF productPagePf;
 
     @Given("the browser is opened, page factory")
     public void the_browser_is_opened_page_factory() {
@@ -41,8 +42,13 @@ public class LoginPage_PageFactory {
 
     @Then("the user should be redirected to the product page. page factory")
     public void theUserShouldBeRedirectedToTheProductPagePageFactory() {
-        ProductPage_PF productPagePf = new ProductPage_PF(driver);
+         productPagePf = new ProductPage_PF(driver);
         String productLabel = productPagePf.getProductLabel();
         Assert.assertEquals( "Products",productLabel);
+    }
+
+    @And("close the browser")
+    public void closeBrowser() {
+        driver.quit();
     }
 }
